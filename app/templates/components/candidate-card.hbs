@@ -3,15 +3,24 @@
     <div class="image" style="background:url('{{candidate.image}}') #9C0A0D; background-size:cover;"></div>
   </div>
 
-  <div class="col-sm-6 col-md-8 details">
+  <div class="col-sm-6 col-md-7 details">
     <h3>{{candidate.name}}</h3>
     <h4>{{candidate.email}}</h4>
     {{#if user.canVote}}
       <button class="btn btn-primary" {{action "createVote"}}>Give Vote</button>
     {{/if}}
+
+    {{#if user}}
+      {{#if didUserVote}}
+        <button class="btn btn-primary" {{action "removeVote"}}>Remove Votes</button>
+      {{/if}}
+    {{/if}}
   </div>
 
-  <div class="col-sm-4 col-md-2 percentage">
-    <p>0%</p>
+  <div class="col-sm-4 col-md-3 percentage">
+    <p>
+      {{percentage candidate.numberOfVotes totalVotes}}%
+    </p>
+    <small>{{candidate.numberOfVotes}}</small>
   </div>
 </div>

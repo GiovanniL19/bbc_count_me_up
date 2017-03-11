@@ -12,5 +12,9 @@ export default Model.extend({
   votes: hasMany("vote", {defaultValue: [], async:true}),
   name: attr("string"),
   email: attr("string"),
-  image: attr("string")
+  image: attr("string"),
+
+  numberOfVotes: function(){
+    return this.get("votes.length");
+  }.property("votes")
 });

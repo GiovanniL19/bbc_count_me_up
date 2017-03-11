@@ -8,12 +8,21 @@ export default Ember.Controller.extend({
   searchString: "",
   addingCandidate: false,
   candidate: null,
-  email: "",
+  email: "giovanni16.gl@gmail.com",
   selectedImage: {
     image: "",
     imageSize: 0,
     imageType: ""
   },
+
+  total: 0,
+  totalObserver: function(){
+    let controller = this;
+
+    this.store.findAll("vote").then(function(votes){
+      controller.set("total", votes.get("length"));
+    });
+  }.observes("candidates@each.votes.length"),
 
   uploadProfileImage: function(){
     //On image select do the following

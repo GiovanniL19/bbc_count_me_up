@@ -20,7 +20,7 @@
     </div>
   {{else}}
     {{#each candidates as |candidate|}}
-      {{candidate-card candidate=candidate user=user}}
+      {{candidate-card candidate=candidate user=user totalVotes=total}}
     {{else}}
       <h5 class="text-center">No candidates found</h5>
     {{/each}}
