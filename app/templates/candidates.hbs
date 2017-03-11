@@ -1,0 +1,31 @@
+<div class="list">
+  {{#if addingCandidate}}
+    <div class="new-candidate">
+      <h4 class="text-center">Add New Candidate</h4>
+      <br>
+      <small>Profile Picture</small>
+      {{upload-image type="file" id="selectImage" class="uploadImage" accept="image/*" file=selectedImage.image fileSize=selectedImage.imageSize fileType=selectedImage.imageType}}
+      <div class="image" {{action "selectImage"}} style="background:url('{{selectedImage.image}}') #9C0A0D; background-size:cover;"></div>
+      <div class="form-group">
+        <label for="name" class="control-label">Name:</label>
+        {{input type="text" class="form-control" value=candidate.name id="name"}}
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="control-label">Email:</label>
+        {{input type="text" class="form-control" value=candidate.email id="email"}}
+      </div>
+      <button class="btn btn-primary add" {{action "addCandidate"}}>Add</button>
+    </div>
+  {{else}}
+    {{#each candidates as |candidate|}}
+      {{candidate-card candidate=candidate}}
+    {{else}}
+      <h5 class="text-center">No candidates found</h5>
+    {{/each}}
+  {{/if}}
+
+</div>
+<div class="bottom">
+  <button class="btn btn-primary" {{action "toggleAddCandidate"}}>{{#if addingCandidate}}Back{{else}}Add Candidate{{/if}}</button>
+</div>
