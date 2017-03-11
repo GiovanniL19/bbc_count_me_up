@@ -109,7 +109,6 @@ export default Ember.Controller.extend({
         //Saves the candidate object
         this.get("candidate").save().then(function () {
           //Clears the candidate and returns user back to list
-          controller.set("candidate", null);
           controller.set("addingCandidate", false);
           controller.clear();
         }, function () {

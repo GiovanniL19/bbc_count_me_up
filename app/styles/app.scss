@@ -110,7 +110,10 @@ label{
           font-size:1.2em;
         }
       }
-      .btn-primary{font-size:0.9em;}
+      .btn-primary{
+        font-size:0.9em;
+        margin-bottom:0.5em;
+      }
       .details{
         padding-left:2em;
         h3{

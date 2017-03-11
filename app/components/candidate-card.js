@@ -29,11 +29,20 @@ export default Ember.Component.extend({
     removeVote(){
       let controller = this;
       let candidate = this.get("candidate");
-      candidate.get("votes").forEach(function(vote){
+      var removedOne = false;
+
+      candidate.get("votes").forEach(function (vote) {
         if(vote) {
-          if (controller.get("user.id") === vote.get("user.id")) {
+          if (controller.get("user.id") === vote.get("user.id") && removedOne === false) {
             controller.get("user.votes").removeObject(vote);
             controller.get("candidate.votes").removeObject(vote);
+
+            vote.deleteRecord();
+            vote.save();
+
+            controller.get("candidate").save();
+            controller.get("user").save();
+            removedOne = true;
           }
         }
       });
