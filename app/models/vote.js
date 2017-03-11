@@ -7,6 +7,8 @@ const {
 } = DS;
 
 export default Model.extend({
+  rev: attr("string"),
+  type: attr("string", {defaultValue: "Vote"}),
   vote: belongsTo("candidate", {async:true}),
   user: belongsTo("user", {async:true}),
   value: attr("number", {defaultValue: 1}),

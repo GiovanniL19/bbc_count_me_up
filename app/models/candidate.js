@@ -7,6 +7,8 @@ const {
 } = DS;
 
 export default Model.extend({
+  rev: attr("string"),
+  type: attr("string", {defaultValue: "Candidate"}),
   votes: hasMany("vote", {defaultValue: [], async:true}),
   name: attr("string"),
   email: attr("string"),

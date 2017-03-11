@@ -2,6 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   candidates: [],
+  winners: [],
+  runnerUps:[],
+  user: null,
   searchString: "",
   addingCandidate: false,
   candidate: null,
@@ -58,6 +61,33 @@ export default Ember.Controller.extend({
   },
 
   actions:{
+    logout(){
+      this.set("user", null);
+    },
+    login(){
+      let controller = this;
+      if(this.get("email")) {
+        let email = this.get("email").toUpperCase();
+        this.store.query('user', {
+          filter: {
+            email: email
+          }
+        }).then(function (results) {
+          if (results.get("length") === 1) {
+            controller.set("user", results.get("firstObject"));
+          } else {
+            let user = controller.store.createRecord("user", {
+              email: email
+            });
+            user.save().then(function (newUser) {
+              controller.set("user", newUser);
+            });
+          }
+        });
+      }else{
+        alert("You need to enter an email");
+      }
+    },
     selectImage(){
       //Opens file explorer
       Ember.$('#selectImage').click();

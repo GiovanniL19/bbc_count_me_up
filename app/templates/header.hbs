@@ -1,20 +1,24 @@
 <div class="header col-md-12">
   <div class="col-md-8">
-    <h5>Hello User</h5>
+    {{#if user}}<h5>Logged in as {{user.email}}</h5>{{/if}}
     <h4>Welcome to the BBC Count Me Up</h4>
   </div>
 
   <div class="col-md-4 text-right">
-    3 votes left
+    {{#if user}}{{user.votesLeft}} votes left{{/if}}
     <br>
-    <div class="input-group">
-      {{input type="text" class="form-control" value=email placeholder="Email"}}
-      <span class="input-group-addon">{{fa-icon "user"}}</span>
-    </div>
-    <button class="btn btn-primary">Login</button>
+    {{#if user}}
+      <button class="btn btn-primary" {{action "logout"}}>Logout</button>
+    {{else}}
+      <div class="input-group">
+        {{input type="text" class="form-control" value=email placeholder="Email"}}
+        <span class="input-group-addon">{{fa-icon "user"}}</span>
+      </div>
+      <button class="btn btn-primary" {{action "login"}}>Login</button>
+    {{/if}}
   </div>
-
+  <br>
   <div class="col-md-12 sort">
-    Start Date: {{input type="datetime-local" value=startDate}} End Date: {{input type="datetime-local" value=endDate}}
+    Start Date: {{input type="datetime-local" value=startDate class="dateTime"}} End Date: {{input type="datetime-local" value=endDate class="dateTime"}}
   </div>
 </div>

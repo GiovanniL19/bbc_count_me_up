@@ -10,6 +10,9 @@ body{
     outline:0 !important;
   }
 }
+a{
+  cursor:pointer;
+}
 .form-control{
   outline: none;
   -webkit-box-shadow: none !important;
@@ -17,6 +20,10 @@ body{
   box-shadow: none !important;
   border:1px solid #EEEEEE;
   border-radius:0;
+}
+.dateTime {
+  height:3em;
+  border:1px solid #EEEEEE;
 }
 .input-group-addon{
   padding: 6px 12px;
@@ -46,7 +53,8 @@ body{
 }
 .new-candidate{
   .image{
-   height:7em;
+    cursor:pointer;
+    height:7em;
     width:7em;
     border-radius:100%;
     background: $primary;
@@ -135,7 +143,7 @@ label{
   padding:0;
   .header{
     width:100%;
-    height:10em;
+    min-height:10em;
     background: #FCFCFC;
     border-bottom:1px solid #EEEEEE;
     padding:1em;
@@ -155,4 +163,7 @@ label{
       font-weight:200;
     }
   }
+}
+.message{
+  padding-top:25%;
 }
