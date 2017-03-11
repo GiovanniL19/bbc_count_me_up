@@ -3,10 +3,10 @@ import DS from 'ember-data';
 
 const {
   attr,
-  hasMany,
-  belongsTo
+  hasMany
 } = DS;
 
 export default Model.extend({
-  votes: hasMany("vote", {defaultValue: [], async: true})
+  votes: hasMany("vote", {defaultValue: [], async: true}),
+  email: attr("string")
 });

@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
   searchString: "",
   addingCandidate: false,
   candidate: null,
-
+  email: "",
   selectedImage: {
     image: "",
     imageSize: 0,
@@ -64,19 +64,25 @@ export default Ember.Controller.extend({
     },
     addCandidate(){
       let controller = this;
-      //Saves the candidate object
-      this.get("candidate").save().then(function(){
-        //Clears the candidate and returns user back to list
-        controller.set("candidate", null);
-        controller.set("addingCandidate", false);
-        controller.clear();
-      }, function(){
-        alert("Failed, please try again");
-      });
+
+      //Validate input
+      if(this.get("candidate.name") && this.get("candidate.email")) {
+        //Saves the candidate object
+        this.get("candidate").save().then(function () {
+          //Clears the candidate and returns user back to list
+          controller.set("candidate", null);
+          controller.set("addingCandidate", false);
+          controller.clear();
+        }, function () {
+          alert("Failed, please try again");
+        });
+      }else{
+        alert("Please enter name and email");
+      }
     },
     toggleAddCandidate(){
       //Toggles addingCandidate property
-      this.set("addingCandidate", !this.get("addingCandidate"))
+      this.set("addingCandidate", !this.get("addingCandidate"));
       //If the candidate is empty then create the record (initialising the object)
       if(this.get("candidate") === null){
         //Add candidate clicked

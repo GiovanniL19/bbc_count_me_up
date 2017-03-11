@@ -10,6 +10,5 @@ export default Model.extend({
   vote: belongsTo("candidate", {async:true}),
   user: belongsTo("user", {async:true}),
   value: attr("number", {defaultValue: 1}),
-  timestamp: attr("number"),
-  user: belongsTo("user")
+  timestamp: attr("number")
 });
