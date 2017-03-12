@@ -9,7 +9,9 @@
 - Count Me Up should be fast. Count Me Up will be used as a close to real-time tool to constantly show the results of the competition, so it should be invoked every second or so to show progress. It follows that it should respond in less than 1 second.
 
 ##Data
-All data is stored locally with ember pouch, however it can easily link and sync to a noSQL database such as CouchDB. To generate 5 random candidates, select the "Populate with 5 candidates" link in the bottom left of the application. To start from scratch and clear all data, click the "Reset Application (Clears all data)" link in the top right under the login/logout button.v
+All data is stored locally with ember pouch, however it can easily link and sync to a noSQL database such as CouchDB. 
+
+To generate 5 random candidates, select the "Populate with 5 candidates" link in the bottom left of the application. To start from scratch and clear all data, click the "Reset Application (Clears all data)" link in the top right under the login/logout button. These links are not shown in the screenshots below.
 
 ##Screenshots
 ###Displays winner in given time frame
