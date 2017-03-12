@@ -27,7 +27,7 @@ To generate 5 random candidates, select the "Populate with 5 candidates" link in
 ![Screenshot 4](http://www.giovannilenguito.co.uk/countMeUpScreenShots/6.png)
 
 ## Prerequisites
-You will need the following things properly installed on your computer.
+You will need the following things properly installed on your computer:
 * [Git](http://git-scm.com/)
 * [Node.js](http://nodejs.org/) (with NPM)
 * [Bower](http://bower.io/)
