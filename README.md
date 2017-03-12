@@ -73,4 +73,4 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 
 ##Errors That I Came Across
-Some errors occurred with regards to the making everything real time. However, these were solved with observers. As the user makes changes the UI automatically updates, Ember JS makes this easy. There were also glitches where the percentages would display "Infinity" rather than a value, this occurred when a property was undefined or null. The fix was to check if the property exists, if it doesn't then return 0.
+Some errors occurred with regards to making everything real time. However, these were solved with observers. As the user makes changes, the UI automatically updates, Ember JS makes this easy. There were also glitches where the percentages would display "Infinity" rather than a value, this occurred when a property was undefined or null. The fix was to check if the property exists, if it doesn't then return 0.
