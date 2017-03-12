@@ -10,16 +10,16 @@
 
 ##Screenshots
 ###Displays winner in given time frame
-![Screenshot 1](https://photos.google.com/album/AF1QipN-xba-qmefv71SGp7x1q4L3rbUvrBx-Rro0c__/photo/AF1QipM8rLVaE4swoJK4IJABX-fzzvFwVbSmR70SMy9j)
+![Screenshot 1](http://www.giovannilenguito.co.uk/countMeUpScreenShots/8.png)
 
 ###Displays all time winner (no time frame set)
-![Screenshot 2](https://photos.google.com/album/AF1QipN-xba-qmefv71SGp7x1q4L3rbUvrBx-Rro0c__/photo/AF1QipM2DU0SpuFkvHXFyktdWkUBNkrxC_PNq0SUhk49)
+![Screenshot 2](http://www.giovannilenguito.co.uk/countMeUpScreenShots/4.png)
 
 ###Adding a new candidate
-![Screenshot 3](https://photos.google.com/album/AF1QipN-xba-qmefv71SGp7x1q4L3rbUvrBx-Rro0c__/photo/AF1QipO0ouE1LfQm0PEHaGBsfJcTRW30UNX5heP4vZn_)
+![Screenshot 3](http://www.giovannilenguito.co.uk/countMeUpScreenShots/7.png)
 
 ###Logged in user with the ability to vote
-![Screenshot 4](https://photos.google.com/album/AF1QipN-xba-qmefv71SGp7x1q4L3rbUvrBx-Rro0c__/photo/AF1QipNR72_mv-RDlBLq96PD9PRZKHsYcYT3QglH5nuu)
+![Screenshot 4](http://www.giovannilenguito.co.uk/countMeUpScreenShots/6.png)
 
 ## Prerequisites
 You will need the following things properly installed on your computer.
