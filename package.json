@@ -43,11 +43,11 @@
     "ember-data": "^2.8.0",
     "ember-export-application-global": "^1.0.5",
     "ember-font-awesome": "3.0.4",
-    "ember-getowner-polyfill": "1.2.2",
     "ember-load-initializers": "^0.5.1",
     "ember-moment": "7.3.0",
     "ember-pouch": "4.2.4",
     "ember-resolver": "^2.0.3",
     "loader.js": "^4.0.1"
-  }
+  },
+  "dependencies": {}
 }
