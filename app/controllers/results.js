@@ -12,10 +12,16 @@ export default Ember.Controller.extend({
   filteredTotalVotes: 0,
 
   getTopVoted: function(){
-    return this.get("sortedCandidates.firstObject");
+    //Gets first candidate from sorted array
+    if(this.get("sortedCandidates.length") !== 0) {
+      return this.get("sortedCandidates.firstObject");
+    }else{
+      return null;
+    }
   }.property("sortedCandidates"),
 
   getFilteredTopVoted: function(){
+    //Gets first candidate from sorted array
     if(this.get("sortedCandidates.firstObject.numberOfFilteredVotes") !== 0) {
       return this.get("filteredSortedCandidates.firstObject");
     }else{

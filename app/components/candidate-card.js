@@ -6,6 +6,7 @@ export default Ember.Component.extend({
   user: null,
   totalVotes: 0,
 
+  //Gets the total votes
   totalObserver: function(){
     let controller = this;
 
@@ -14,6 +15,8 @@ export default Ember.Component.extend({
     });
 
   }.observes("candidate.votes.length"),
+
+  //Checks if user has already voted for this candidate
   didUserVote: function(){
     let controller = this;
     if(this.get("user")) {
@@ -28,6 +31,7 @@ export default Ember.Component.extend({
   }.property("candidate.votes.length"),
 
   actions:{
+    //Removes a single vote from the candidate
     removeVote(){
       let controller = this;
       let candidate = this.get("candidate");
@@ -49,7 +53,9 @@ export default Ember.Component.extend({
         }
       });
     },
+
     createVote(){
+      //Adds a single vote to the candidate
       let candidate = this.get("candidate");
       let user = this.get("user");
 

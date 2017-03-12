@@ -2,8 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   results: Ember.inject.controller("results"),
-  candidates: [],
 
+  candidates: [],
   filter: false,
   user: null,
   searchString: "",
@@ -74,18 +74,46 @@ export default Ember.Controller.extend({
   },
 
   actions:{
+    reset(){
+      if(confirm("You are about to reset the application to default, clearing all data")) {
+        //Deletes local database
+        window.indexedDB.deleteDatabase("_pouch_count-me-up-pouch");
+        //Reloads application
+        location.reload();
+      }
+    },
+
+    generateCandidates(){
+      //Creates 5 new candidates
+      for(var i = 0; i < 5; i++){
+        let candidate = this.set("candidate", this.store.createRecord("candidate", {
+          name: "candidate - " + (i + 1),
+          email: "none"
+        }));
+        candidate.save();
+      }
+    },
+
     clearFilter(){
+      //Hides filter
       this.set("filter", false);
     },
+
     filter(){
+      let controller = this;
+      //Shows filter
       this.set("filter", true);
 
+      //Initialises properties
       this.set("results.filteredCandidates", []);
-      let controller = this;
+
+      //24 hours is added to end date time because it is by default set to 00:00, therefore, adding 24 hours sets the time to the end of the day
       let start = moment(this.get("startDate")).unix();
-      let end = moment(this.get("endDate")).unix();
+      let end = moment(this.get("endDate")).add(24, "h").unix();
 
       var votes = 0;
+
+
       //Loop candidates
       this.get("candidates").forEach(function (candidate) {
         //Create new filtered votes array
@@ -109,12 +137,16 @@ export default Ember.Controller.extend({
 
       this.set("results.filteredTotalVotes", votes);
     },
+
     logout(){
+      //Removes user
       this.set("user", null);
     },
 
     login(){
       let controller = this;
+
+      //Finds user by email
       if(this.get("email")) {
         let email = this.get("email").toUpperCase();
         this.store.query('user', {
@@ -122,9 +154,13 @@ export default Ember.Controller.extend({
             email: email
           }
         }).then(function (results) {
+          //Checks if user exists, if so logs them in
           if (results.get("length") === 1) {
+            //Set the found user
             controller.set("user", results.get("firstObject"));
           } else {
+
+            //Creates new user and sets user
             let user = controller.store.createRecord("user", {
               email: email
             });

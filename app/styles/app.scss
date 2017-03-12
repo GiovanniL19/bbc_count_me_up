@@ -91,6 +91,8 @@ label{
   }
   .list{
     padding:1em;
+    height:79vh;
+    overflow: scroll;
     .card{
       border:1px solid #EEEEEE;
       min-height:5em;

@@ -4,7 +4,7 @@
       <div class="col-md-12 co-sm-12 col-xs-12 card">
         <div class="col-sm-6 col-md-6 col-xs-6 details">
           <h1>Winner <small>By Selected Time Frame</small></h1>
-          <h2>{{percentage getFilteredTopVoted.numberOfFilteredVotes filteredTotalVotes}}%</h2>
+          <h2><small>With </small>{{percentage getFilteredTopVoted.numberOfFilteredVotes filteredTotalVotes}}% <small> of the votes</small></h2>
           <h3>{{getFilteredTopVoted.name}}</h3>
           <h4>{{getFilteredTopVoted.email}}</h4>
         </div>
@@ -17,18 +17,20 @@
       <h2 class="text-center">No winner found</h2>
     {{/if}}
   {{else}}
-    <div class="col-md-12 co-sm-12 col-xs-12 card">
-      <div class="col-sm-6 col-md-6 col-xs-6 details">
-        <h1>All Time Winner</h1>
-        <h2>{{percentage getTopVoted.numberOfVotes application.total}}%</h2>
-        <h3>{{getTopVoted.name}}</h3>
-        <h4>{{getTopVoted.email}}</h4>
-      </div>
+    {{#if getTopVoted}}
+      <div class="col-md-12 co-sm-12 col-xs-12 card">
+        <div class="col-sm-6 col-md-6 col-xs-6 details">
+          <h1>All Time Winner</h1>
+          <h2>{{percentage getTopVoted.numberOfVotes application.total}}%</h2>
+          <h3>{{getTopVoted.name}}</h3>
+          <h4>{{getTopVoted.email}}</h4>
+        </div>
 
-      <div class="col-sm-6 col-md-6 col-xs-6 text-right">
-        <div class="image" style="background:url('{{getTopVoted.image}}') #9C0A0D; background-size:cover;"></div>
+        <div class="col-sm-6 col-md-6 col-xs-6 text-right">
+          <div class="image" style="background:url('{{getTopVoted.image}}') #9C0A0D; background-size:cover;"></div>
+        </div>
       </div>
-    </div>
+    {{/if}}
   {{/if}}
 </div>
 
