@@ -1,12 +1,28 @@
-# Count-me-up
+# BBC Count Me Up
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+##Feature: Counting Votes:
+"As a BBC television presenter I want to see the counts for candidates within a given time frame. So that I can announce the winner of the competition"
+
+##Acceptance Criteria:
+- Count Me Up should be accurate. So if there is a total count of 100 votes and 60% are given to candidate-1 then Count Me Up should return 60 as the count of votes for candidate-1.
+- The same user can vote multiple times, up to a maximum of 3 times for the same candidate or for different ones. Count Me Up should not count a vote if the same user already exceeded the maximum allowed number of votes (that is should not count user-1 vote for candidate-5 if user-1 already voted for candidate-1, candidate-2 and candidate-3). This is the reason why candidate-5 for example received "only" 3M votes instead of 4M.
+- Count Me Up should be fast. Count Me Up will be used as a close to real-time tool to constantly show the results of the competition, so it should be invoked every second or so to show progress. It follows that it should respond in less than 1 second.
+
+##Screenshots
+###Displays winner in given time frame
+![Screenshot 1](https://photos.google.com/album/AF1QipN-xba-qmefv71SGp7x1q4L3rbUvrBx-Rro0c__/photo/AF1QipM8rLVaE4swoJK4IJABX-fzzvFwVbSmR70SMy9j)
+
+###Displays all time winner (no time frame set)
+![Screenshot 2](https://photos.google.com/album/AF1QipN-xba-qmefv71SGp7x1q4L3rbUvrBx-Rro0c__/photo/AF1QipM2DU0SpuFkvHXFyktdWkUBNkrxC_PNq0SUhk49)
+
+###Adding a new candidate
+![Screenshot 3](https://photos.google.com/album/AF1QipN-xba-qmefv71SGp7x1q4L3rbUvrBx-Rro0c__/photo/AF1QipO0ouE1LfQm0PEHaGBsfJcTRW30UNX5heP4vZn_)
+
+###Logged in user with the ability to vote
+![Screenshot 4](https://photos.google.com/album/AF1QipN-xba-qmefv71SGp7x1q4L3rbUvrBx-Rro0c__/photo/AF1QipNR72_mv-RDlBLq96PD9PRZKHsYcYT3QglH5nuu)
 
 ## Prerequisites
-
 You will need the following things properly installed on your computer.
-
 * [Git](http://git-scm.com/)
 * [Node.js](http://nodejs.org/) (with NPM)
 * [Bower](http://bower.io/)
@@ -14,15 +30,17 @@ You will need the following things properly installed on your computer.
 * [PhantomJS](http://phantomjs.org/)
 
 ## Installation
-
+In terminal type the following:
 * `git clone <repository-url>` this repository
 * `cd count-me-up`
 * `npm install`
 * `bower install`
 
 ## Running / Development
-
+To run the application, type the following in the terminal in the project directory:
 * `ember serve`
+
+In your browser:
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
 ### Code Generators
@@ -39,9 +57,6 @@ Make use of the many generators for code, try `ember help generate` for more det
 * `ember build` (development)
 * `ember build --environment production` (production)
 
-### Deploying
-
-Specify what it takes to deploy your app.
 
 ## Further Reading / Useful Links
 
