@@ -17,11 +17,13 @@ export default Ember.Component.extend({
   didUserVote: function(){
     let controller = this;
     if(this.get("user")) {
-      return this.get("candidate.votes").forEach(function (vote) {
+      var returnValue = false;
+      this.get("candidate.votes").forEach(function (vote) {
         if (vote.get("user.email") === controller.get("user.email")) {
-          return true;
+          returnValue = true;
         }
       });
+      return returnValue;
     }
   }.property("candidate.votes.length"),
 

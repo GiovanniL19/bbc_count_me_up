@@ -16,5 +16,10 @@ export default Model.extend({
 
   numberOfVotes: function(){
     return this.get("votes.length");
-  }.property("votes")
+  }.property("votes"),
+
+  numberOfFilteredVotes: function(){
+    return this.get("filteredVotes.length");
+  }.property("filteredVotes"),
+
 });

@@ -1,21 +1,25 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  results: Ember.inject.controller("results"),
   candidates: [],
-  winners: [],
-  runnerUps:[],
+
+  filter: false,
   user: null,
   searchString: "",
   addingCandidate: false,
   candidate: null,
-  email: "giovanni16.gl@gmail.com",
+  email: "",
   selectedImage: {
     image: "",
     imageSize: 0,
     imageType: ""
   },
-
+  startDate: null,
+  endDate: null,
   total: 0,
+
+  //Updates total votes made by observing all candidates votes
   totalObserver: function(){
     let controller = this;
 
@@ -24,6 +28,7 @@ export default Ember.Controller.extend({
     });
   }.observes("candidates@each.votes.length"),
 
+  //If an image is selected, then set the base 64 to new candidate object
   uploadProfileImage: function(){
     //On image select do the following
     var controller = this;
@@ -53,7 +58,6 @@ export default Ember.Controller.extend({
 
   }.observes('selectedImage.image'),
 
-
   clear: function(){
     //Clears data
     this.set("selectedImage", {
@@ -70,9 +74,45 @@ export default Ember.Controller.extend({
   },
 
   actions:{
+    clearFilter(){
+      this.set("filter", false);
+    },
+    filter(){
+      this.set("filter", true);
+
+      this.set("results.filteredCandidates", []);
+      let controller = this;
+      let start = moment(this.get("startDate")).unix();
+      let end = moment(this.get("endDate")).unix();
+
+      var votes = 0;
+      //Loop candidates
+      this.get("candidates").forEach(function (candidate) {
+        //Create new filtered votes array
+        candidate.set("filteredVotes", []);
+
+        //Loop through votes to check timestamp
+        candidate.get("votes").forEach(function (vote) {
+          //Check if vote is within time frame
+          if (vote.get("timestamp") >= start && vote.get("timestamp") <= end) {
+            //Add 1 to vote count
+            votes++;
+
+            //Add vote to filtered array
+            candidate.get("filteredVotes").pushObject(vote);
+
+          }
+        });
+
+        controller.get("results.filteredCandidates").pushObject(candidate);
+      });
+
+      this.set("results.filteredTotalVotes", votes);
+    },
     logout(){
       this.set("user", null);
     },
+
     login(){
       let controller = this;
       if(this.get("email")) {
@@ -97,10 +137,12 @@ export default Ember.Controller.extend({
         alert("You need to enter an email");
       }
     },
+
     selectImage(){
       //Opens file explorer
       Ember.$('#selectImage').click();
     },
+
     addCandidate(){
       let controller = this;
 
@@ -118,6 +160,7 @@ export default Ember.Controller.extend({
         alert("Please enter name and email");
       }
     },
+
     toggleAddCandidate(){
       //Toggles addingCandidate property
       this.set("addingCandidate", !this.get("addingCandidate"));

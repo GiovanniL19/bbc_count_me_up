@@ -25,6 +25,7 @@ a{
 .dateTime {
   height:3em;
   border:1px solid #EEEEEE;
+  text-align: center;
 }
 .input-group-addon{
   padding: 6px 12px;
@@ -37,7 +38,7 @@ a{
   border-radius: 4px;
   background: white;
 }
-.btn-primary{
+.btn{
   border-radius:0;
   background: $primary;
   border:none;
@@ -151,6 +152,25 @@ label{
     background: #FCFCFC;
     border-bottom:1px solid #EEEEEE;
     padding:1em;
+    .sort{
+      .btn-default{
+        background: #eee;
+        color:#555;
+        height:3em;
+        margin-top:0;
+        &:hover, &:focus, &:active{
+          background: #eee !important;
+          opacity: 0.7;
+        }
+        &:focus, &:active{
+          opacity: 0.85;
+        }
+      }
+      .btn-primary{
+        height:3em;
+        margin-top:0;
+      }
+    }
     .form-control{
       border-right:none;
     }
@@ -169,7 +189,7 @@ label{
   }
 }
 .message{
-  padding-top:18%;
+  margin-top:2em;
   border-bottom:1px solid #eee;
   padding-bottom:1em;
 }

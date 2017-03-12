@@ -1,21 +1,40 @@
+<div class="content col-md-12">
+  {{#if application.filter}}
+    {{#if getFilteredTopVoted}}
+      <div class="col-md-12 co-sm-12 col-xs-12 card">
+        <div class="col-sm-6 col-md-6 col-xs-6 details">
+          <h1>Winner <small>By Selected Time Frame</small></h1>
+          <h2>{{percentage getFilteredTopVoted.numberOfFilteredVotes filteredTotalVotes}}%</h2>
+          <h3>{{getFilteredTopVoted.name}}</h3>
+          <h4>{{getFilteredTopVoted.email}}</h4>
+        </div>
+
+        <div class="col-sm-6 col-md-6 col-xs-6 text-right">
+          <div class="image" style="background:url('{{getFilteredTopVoted.image}}') #9C0A0D; background-size:cover;"></div>
+        </div>
+      </div>
+    {{else}}
+      <h2 class="text-center">No winner found</h2>
+    {{/if}}
+  {{else}}
+    <div class="col-md-12 co-sm-12 col-xs-12 card">
+      <div class="col-sm-6 col-md-6 col-xs-6 details">
+        <h1>All Time Winner</h1>
+        <h2>{{percentage getTopVoted.numberOfVotes application.total}}%</h2>
+        <h3>{{getTopVoted.name}}</h3>
+        <h4>{{getTopVoted.email}}</h4>
+      </div>
+
+      <div class="col-sm-6 col-md-6 col-xs-6 text-right">
+        <div class="image" style="background:url('{{getTopVoted.image}}') #9C0A0D; background-size:cover;"></div>
+      </div>
+    </div>
+  {{/if}}
+</div>
+
 {{#unless application.user}}
-  <div class="message text-center">
+  <div class="message text-center col-md-12 col-sm-12 col-xs-12">
     <h5>To cast your votes, login with an email address</h5>
     <small>If you do not have an account, an account will be created for you. <br>You have up to 3 votes for the same or multiple candidates.<br>You can add a candidate by clicking the bottom left button and following the on screen instructions<br><br>For any question, email giovanni16.gl@gmail.com</small>
   </div>
 {{/unless}}
-
-<div class="content col-md-12">
-  <div class="col-md-12 card">
-    <div class="col-sm-6 col-md-6 details">
-      <h1>Winner</h1>
-      <h2>{{percentage getTopVoted.numberOfVotes application.total}}%</h2>
-      <h3>{{getTopVoted.name}}</h3>
-      <h4>{{getTopVoted.email}}</h4>
-    </div>
-
-    <div class="col-sm-6 col-md-6 text-right">
-      <div class="image" style="background:url('{{getTopVoted.image}}') #9C0A0D; background-size:cover;"></div>
-    </div>
-  </div>
-</div>

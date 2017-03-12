@@ -11,7 +11,7 @@
       <button class="btn btn-primary" {{action "logout"}}>Logout</button>
     {{else}}
       <div class="input-group">
-        {{input type="text" class="form-control" value=email placeholder="Email"}}
+        {{input type="email" class="form-control" value=email placeholder="Email"}}
         <span class="input-group-addon">{{fa-icon "user"}}</span>
       </div>
       <button class="btn btn-primary" {{action "login"}}>Login</button>
@@ -19,6 +19,8 @@
   </div>
   <br>
   <div class="col-md-12 sort">
-    Start Date: {{input type="datetime-local" value=startDate class="dateTime"}} End Date: {{input type="datetime-local" value=endDate class="dateTime"}}
+    <button class="btn btn-primary" {{action "filter"}}>Filter</button>
+    {{input type="date" value=startDate class="dateTime"}} to {{input type="date" value=endDate class="dateTime"}}
+    <button class="btn btn-default" {{action "clearFilter"}}>Clear Filter</button>
   </div>
 </div>
