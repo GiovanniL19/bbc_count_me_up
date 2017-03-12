@@ -8,6 +8,9 @@
 - The same user can vote multiple times, up to a maximum of 3 times for the same candidate or for different ones. Count Me Up should not count a vote if the same user already exceeded the maximum allowed number of votes (that is should not count user-1 vote for candidate-5 if user-1 already voted for candidate-1, candidate-2 and candidate-3). This is the reason why candidate-5 for example received "only" 3M votes instead of 4M.
 - Count Me Up should be fast. Count Me Up will be used as a close to real-time tool to constantly show the results of the competition, so it should be invoked every second or so to show progress. It follows that it should respond in less than 1 second.
 
+##Data
+All data is stored locally with ember pouch, however it can easily link and sync to a noSQL database such as CouchDB. To generate 5 random candidates, select the "Populate with 5 candidates" link in the bottom left of the application. To start from scratch and clear all data, click the "Reset Application (Clears all data)" link in the top right under the login/logout button.v
+
 ##Screenshots
 ###Displays winner in given time frame
 ![Screenshot 1](http://www.giovannilenguito.co.uk/countMeUpScreenShots/8.png)
