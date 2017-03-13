@@ -74,3 +74,6 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ##Errors That I Came Across
 Some errors occurred with regards to making everything real time. However, these were solved with observers. As the user makes changes, the UI automatically updates, Ember JS makes this easy. There were also glitches where the percentages would display "Infinity" rather than a value, this occurred when a property was undefined or null. The fix was to check if the property exists, if it doesn't then return 0.
+
+##Development Process
+I start off with writing the requirements in bullet points on paper, I then designed the UI from these requirements showing where all these actions will be present. Once the design was complete I started developing the code. Once I finished development, I tested the code with Ember testing. Any complex logic involved, I would write down onto paper the steps needed to produce the expected result, this helped when coding the actual the logic.
