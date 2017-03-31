@@ -10,3 +10,4 @@ test('it exists', function(assert) {
   let controller = this.subject();
   assert.ok(controller);
 });
+

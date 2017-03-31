@@ -12,9 +12,24 @@ export default Ember.Controller.extend({
   filteredTotalVotes: 0,
 
   getTopVoted: function(){
+    var response = [];
+
     //Gets first candidate from sorted array
     if(this.get("sortedCandidates.length") !== 0) {
-      return this.get("sortedCandidates.firstObject");
+      var numberOfVotes = 0;
+
+      this.get("sortedCandidates").forEach(function(candidate, index){
+        if(index === 0){
+          numberOfVotes = candidate.get("numberOfVotes");
+          response.pushObject(candidate);
+        }else{
+          if(numberOfVotes === candidate.get("numberOfVotes")){
+            response.pushObject(candidate);
+          }
+        }
+      });
+
+      return response;
     }else{
       return null;
     }
