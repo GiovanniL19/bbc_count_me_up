@@ -1,35 +1,39 @@
 <div class="content col-md-12">
   {{#if application.filter}}
     {{#if getFilteredTopVoted}}
-      <div class="col-md-12 co-sm-12 col-xs-12 card">
-        <div class="col-sm-6 col-md-6 col-xs-6 details">
-          <h1>Winner <small>By Selected Time Frame</small></h1>
-          <h2><small>With </small>{{percentage getFilteredTopVoted.numberOfFilteredVotes filteredTotalVotes}}% <small> of the votes</small></h2>
-          <h3>{{getFilteredTopVoted.name}}</h3>
-          <h4>{{getFilteredTopVoted.email}}</h4>
-        </div>
+      {{#each getFilteredTopVoted as |candidate|}}
+        <div class="col-md-12 co-sm-12 col-xs-12 card">
+          <div class="col-sm-6 col-md-6 col-xs-6 details">
+            <h1>Winner <small>By Selected Time Frame</small></h1>
+            <h2><small>With </small>{{percentage candidate.numberOfFilteredVotes filteredTotalVotes}}% <small> of the votes</small></h2>
+            <h3>{{candidate.name}}</h3>
+            <h4>{{candidate.email}}</h4>
+          </div>
 
-        <div class="col-sm-6 col-md-6 col-xs-6 text-right">
-          <div class="image" style="background:url('{{getFilteredTopVoted.image}}') #9C0A0D; background-size:cover;"></div>
+          <div class="col-sm-6 col-md-6 col-xs-6 text-right">
+            <div class="image" style="background:url('{{candidate.image}}') #9C0A0D; background-size:cover;"></div>
+          </div>
         </div>
-      </div>
+      {{/each}}
     {{else}}
       <h2 class="text-center">No winner found</h2>
     {{/if}}
   {{else}}
     {{#if getTopVoted}}
-      <div class="col-md-12 co-sm-12 col-xs-12 card">
-        <div class="col-sm-6 col-md-6 col-xs-6 details">
-          <h1>All Time Winner</h1>
-          <h2>{{percentage getTopVoted.numberOfVotes application.total}}%</h2>
-          <h3>{{getTopVoted.name}}</h3>
-          <h4>{{getTopVoted.email}}</h4>
-        </div>
+      <h1>{{tie getTopVoted}}</h1>
+      {{#each getTopVoted as |candidate|}}
+        <div class="col-md-12 co-sm-12 col-xs-12 card">
+          <div class="col-sm-6 col-md-6 col-xs-6 details">
+            <h2>{{percentage candidate.numberOfVotes application.total}}% <br><small>{{candidate.numberOfVotes}} votes</small></h2>
+            <h3>{{candidate.name}}</h3>
+            <h4>{{candidate.email}}</h4>
+          </div>
 
-        <div class="col-sm-6 col-md-6 col-xs-6 text-right">
-          <div class="image" style="background:url('{{getTopVoted.image}}') #9C0A0D; background-size:cover;"></div>
+          <div class="col-sm-6 col-md-6 col-xs-6 text-right">
+            <div class="image" style="background:url('{{candidate.image}}') #9C0A0D; background-size:cover;"></div>
+          </div>
         </div>
-      </div>
+      {{/each}}
     {{/if}}
   {{/if}}
 </div>
