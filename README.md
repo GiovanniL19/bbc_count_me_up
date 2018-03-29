@@ -17,6 +17,7 @@ To generate 5 random candidates, select the "Populate with 5 candidates" link in
 
 ### Displays winner in given time frame
 ![Screenshot 1](http://www.giovannilenguito.co.uk/countMeUpScreenShots/8.png)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FGiovanniL19%2Fbbc_count_me_up.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FGiovanniL19%2Fbbc_count_me_up?ref=badge_shield)
 
 ### Displays all time winner (no time frame set)
 ![Screenshot 2](http://www.giovannilenguito.co.uk/countMeUpScreenShots/4.png)
@@ -78,3 +79,7 @@ Some errors occurred with regards to making everything real time. However, these
 
 ## Development Process
 I start off with writing the requirements in bullet points on paper, I then designed the UI from these requirements showing where all these actions will be present. Once the design was complete I started developing the code. Once I finished development, I tested the code with Ember testing. Any complex logic involved, I would write down onto paper the steps needed to produce the expected result, this helped when coding the actual the logic.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FGiovanniL19%2Fbbc_count_me_up.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FGiovanniL19%2Fbbc_count_me_up?ref=badge_large)
